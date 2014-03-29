@@ -1,0 +1,72 @@
+# Environment Variables
+export PROJECT_HOME=$HOME/amplify
+export CLIENT_HOME=$PROJECT_HOME/notebook-client
+export SERVER_HOME=$PROJECT_HOME/alpha_services
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export GRADLE_HOME=/usr/local/Cellar/gradle/bin
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/var/rbenv/shims:$PATH
+export ENVIRONMENT_APK_LOCATION=$CLIENT_HOME/environment/target/environment-1.1-SNAPSHOT.apk
+export APP_APK_LOCATION=$CLIENT_HOME/app/target/app-1.1-SNAPSHOT.apk
+export M2_HOME=<%= @m2_home %>
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export RBENV_ROOT=/usr/local/var/rbenv
+
+# GLOBAL ALIASES
+alias cd..="cd .."
+alias cls="clear"
+alias home="cd ~"
+alias reload_bash_profile='source ~/.bash_profile'
+function process_info() { ps -ef|grep "$@" ;}
+alias pi="process_info"
+ 
+# GOTOs
+alias goto_server='home && cd $SERVER_HOME'
+alias goto_client='home && cd $CLIENT_HOME'
+ 
+# EMULATOR
+alias emulator_teacher_start='emulator -avd teacher-emulator'
+alias emulator_student_start='emulator -avd student-emulator'
+alias emulator_student1_start='emulator -avd student1-emulator'
+ 
+#...an alternate setup
+export EMULATOR_SCALE=0.65
+function solo() { emulator -avd teacher-emulator -scale $EMULATOR_SCALE & }
+function duo() { solo; emulator -avd student-emulator -scale $EMULATOR_SCALE & }
+function trio() { duo; emulator -avd student-emulator-2 -scale $EMULATOR_SCALE & }
+ 
+# build-dev
+alias bdev='home && goto_client && mvn clean install -Denvironment=dev'
+ 
+# build-dev-skip-all
+alias bdevsall='home && goto_client && mvn clean install -Denvironment=dev -Dandroid.lint.skip=true -DskipTests=true -Dpmd.skip=true'
+ 
+# build-deploy-dev
+alias bddev='bdev && cd environment && mvn android:deploy && cd ../app && mvn android:deploy && cd ..'
+ 
+# build-deploy-dev-skip-all
+alias bddevsall='bdevsall && cd environment && mvn android:deploy && cd .. && cd app && mvn android:deploy && cd ..'
+ 
+# build-qa-skip-all
+alias bqasall='home && goto_client && mvn clean install -Denvironment=qa -Dandroid.lint.skip=true -DskipTests=true -Dpmd.skip=true'
+ 
+# Start Android avd
+alias avd='android avd &'
+ 
+# adb server restart
+alias adbr='adb kill-server;adb start-server;adb devices'
+ 
+# pull rebase service side
+alias prs='home && goto_server && git pr && echo server side has been pulled/rebased...'
+ 
+# pull rebase client side
+alias prc='home && goto_client && git pr && echo client side has been pulled/rebased...'
+ 
+# pull rebase functional-tests
+alias prft='home && goto_funtional_tests && git pr && echo funtional-test has been pulled/rebased...'
+ 
+# pull rebase all
+alias prall='home && prs && prc && prft && echo pull/rebase all has been completed!'
+echo "Loaded Customized Bash Profile - .bash_profile"

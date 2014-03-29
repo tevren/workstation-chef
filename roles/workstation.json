@@ -1,0 +1,15 @@
+{
+  "name": "workstation",
+  "description": "",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "run_list": [
+    "recipe[workstation::default]",
+    "recipe[workstation::user]",
+    "role[mac_os_x]"
+  ]
+}

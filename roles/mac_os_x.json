@@ -1,0 +1,111 @@
+{
+  "name": "mac_os_x",
+  "description": "Role applied to all Mac OS X systems",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "default_attributes": {
+    "mac_os_x": {
+      "settings": {
+        "dock": {
+          "domain": "com.apple.dock",
+          "autohide":  true,
+          "autohide-time-modifier":  0,
+          "autohide-delay":  0,
+          "no-glass":  true,
+          "orientation": "bottom",
+          "expose-animation-duration": "0",
+          "workspaces-swoosh-animation-off":true,
+          "mru-spaces":false,
+          "showLaunchpadDestureEnabled":false,
+          "expose-group-by-app":  false,
+          "mineffect": "scale",
+          "magnification":  false,
+          "launchanim":  false,
+          "minimize-to-application":  true,
+          "show-proces-indicators":  false,
+          "tilesize": "48",
+          "size-immutable":  true,
+          "dashboard-in-overlay":  true,
+          "static-only":  true
+        },
+        "global": {
+          "domain": "NSGlobalDomain",
+          "AppleEnableMouseSwipeNavigateWithScrolls":"true",
+          "AppleMetricUnits":false,
+          "userMenuExtraStyle":2,
+          "AppleAquaColorVariant":  6,
+          "AppleHighlightColor": "0.882772 0.869566 0.660917",
+          "AppleEnableMenuBarTransparency":  false,
+          "AppleShowScrollBars": "Automatic",
+          "KeyRepeat":  0,
+          "NSAutomaticSpellingCorrectionEnabled":  false,
+          "NSUserReplacementItemsEnabled":  false,
+          "WebAutomaticSpellingCorrectionEnabled":  true,
+          "WebAutomaticTextReplacementEnabled":  false,
+          "AppleKeyboardUIMode":  3,
+          "NSAutomaticWindowAnimationsEnabled":  false,
+          "NSQuitAlwaysKeepsWindows":  false,
+          "NSDisableAutomaticTermination":  true,
+          "com.apple.swipescrolldirection":  false,
+          "AppleShowAllExtensions":  true,
+          "AppleMiniaturizeOnDoubleClick":  false
+        },
+        "screensaver": {
+          "domain": "com.apple.screensaver",
+          "askForPassword":  1,
+          "askForPasswordDelay":  1
+        },
+        "finder": {
+          "domain": "com.apple.finder",
+          "DisableAllAnimations":  true,
+          "ShowStatusBar":  true,
+          "QLEnableTextSelection":  true,
+          "_FXShowPosixPathInTitle":  true,
+          "FXDefaultSearchScope": "SCcf",
+          "FXEnableExtensionChangeWarning":  false,
+          "FXPreferredViewStyle": "Nlsv",
+          "AppleShowAllExtensions":  true,
+          "NewWindowTarget":"PfLo",
+          "NewWindowTargetPath":"file://localhost/Applications/",
+          "ShowRemovableMediaOnDesktop":true,
+          "SidebarDeviceSectionDisclosedState":true,
+          "ShowStatusBar":true,
+          "ShowHardDrivesOnDesktop":true,
+          "ShowExternalHardDrivesOnDesktop":true,
+          "ShowMountedServersOnDesktop":true,
+          "ShowPathbar":true
+        },
+        "trackpad": {
+          "domain": "com.apple.AppleMultitouchTrackpad",
+          "TrackpadThreeFingerDrag":false,
+          "USBMouseStopsTrackpad":0,
+          "TrackpadPinch":1,
+          "TrackpadFourFingerVertSwipeGesture":2,
+          "TrackpadRotate":1,
+          "UserPreferences":true,
+          "TrackpadMomentumScroll":true,
+          "TrackpadFourFingerPinchGesture":2,
+          "TrackpadThreeFingerTapGesture":2,
+          "TrackpadThreeFingerHorizSwipeGesture":2,
+          "TrackpadScroll":true,
+          "DragLock":0,
+          "TrackpadFiveFingerPinchGesture":2,
+          "TrackpadThreeFingerVertSwipeGesture":2,
+          "TrackpadTwoFingerFromRightEdgeSwipeGesture":3,
+          "TrackpadHandResting":true,
+          "Dragging":0,
+          "TrackpadCornerSecondaryClick":0,
+          "TrackpadRightClick":true,
+          "TrackpadFourFingerHorizSwipeGesture":2,
+          "Clicking":0
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "run_list": [
+    "recipe[mac_os_x::settings]",
+    "recipe[mac_os_x::firewall]"
+  ]
+}

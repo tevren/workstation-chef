@@ -1,0 +1,24 @@
+{
+  "id": "user",
+  "shell": "\/usr\/local\/bin\/zsh",
+  "repos":{
+    "dotfiles":{
+      "repo":"git@github.com:tevren/dotfiles.git",
+      "revision":"master"
+      },
+    "biffbot":{
+      "repo":"git@github.com:tevren/biffbot.git",
+      "revision":"master"
+      },
+    "workstation-chef":{
+      "repo":"git@github.com:tevren/workstation-chef.git",
+      "revision":"master"
+      },
+    "Reddability":{
+      "repo":"git@github.com:tevren/Reddability.git",
+      "revision":"master"
+    }
+  },
+  "databases":{
+  }
+}

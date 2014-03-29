@@ -1,0 +1,18 @@
+[submodule "cookbooks/mac_os_x"]
+	path = cookbooks/mac_os_x
+	url = https://github.com/chef-osx/mac_os_x
+[submodule "cookbooks/homebrew"]
+	path = cookbooks/homebrew
+	url = git://github.com/tevren/homebrew.git
+[submodule "cookbooks/dmg"]
+	path = cookbooks/dmg
+	url = https://github.com/opscode-cookbooks/dmg.git
+[submodule "cookbooks/ssh_known_hosts"]
+	path = cookbooks/ssh_known_hosts
+	url = https://github.com/opscode-cookbooks/ssh_known_hosts.git
+[submodule "cookbooks/partial_search"]
+	path = cookbooks/partial_search
+	url = https://github.com/opscode-cookbooks/partial_search.git
+[submodule "cookbooks/zip_app"]
+	path = cookbooks/zip_app
+	url = git://github.com/fnichol/chef-zip_app.git
