@@ -1,33 +1,37 @@
 # workstation-chef
-Sets up your developer workstation with homebrew/ruby/mysql/IntelliJ/git repos.
+Sets up my developer workstation with homebrew/ruby/mysql/IntelliJ/git repos.
 
 ##  Step 1: Setup your ssh keys:
 
-1. Run ssh-keygen to create key pair:
+* Run ssh-keygen to create key pair:
+```
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+cd ~/.ssh
+ssh-keygen -b 2048
+```
 
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
-    cd ~/.ssh
-    ssh-keygen -b 2048
+* Copy contents of id_rsa.pub
+```
+pbcopy < ~/.ssh/id_rsa.pub  # OR open file, select all text and copy to clipboard
+```
 
-2. Copy contents of id_rsa.pub
-
-    pbcopy < ~/.ssh/id_rsa.pub  # OR open file, select all text and copy to clipboard
-
-3. Add key to your Github/Bitbucket account
+* Add key to your Github/Bitbucket account
   * This is required if you have repos you'd like to checkout during setup. 
 
 ## Step 2: Install xcode-tools and chef
 
 * Your password will be required when installing xcode-tools (At the very beginning)
-
-    curl -L https://raw.githubusercontent.com/tevren/workstation-chef/master/bootstrap.sh | bash
+```
+curl -L https://raw.githubusercontent.com/tevren/workstation-chef/master/bootstrap.sh | bash
+```
 
 ## Step 3: Clone this repo
-
-  git clone git@github.com:tevren/workstation-chef.git
-  cd workstation-chef
-  git submodule update --init
+```
+git clone git@github.com:tevren/workstation-chef.git
+cd workstation-chef
+git submodule update --init
+```
 
 ## Step 4: Customize
 
@@ -44,11 +48,12 @@ Sets up your developer workstation with homebrew/ruby/mysql/IntelliJ/git repos.
   * When installing your first app (towards the middle of the chef-run)
 
 * Runs chef, which will install all the other components (ruby/mysql/android-tools)
-
-    ./go
-
+```
+./go
+```
 ## How long does it take?
 
 It took my puny vm an hour to converge my setup.
-
-    Chef Client finished, 218/293 resources updated in 3803.392194 seconds
+```
+Chef Client finished, 218/293 resources updated in 3803.392194 seconds
+```
