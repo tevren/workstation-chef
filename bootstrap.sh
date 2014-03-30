@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# source: https://github.com/timsutton/osx-vm-templates/blob/master/scripts/xcode-cli-tools.sh
 # install os x command line tools dmg
 OSX_VERS=$(sw_vers -productVersion | awk -F "." '{print $2}')
 
