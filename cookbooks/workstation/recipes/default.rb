@@ -43,6 +43,9 @@ when "mac_os_x"
 
   wk['dirs'].each do |dir|
     directory "#{ENV['HOME']}/#{dir}" do
+      owner ENV['USER']
+      group "staff"
+      mode "0755"
       recursive true
     end
   end

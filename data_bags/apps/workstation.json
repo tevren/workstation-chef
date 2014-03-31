@@ -108,5 +108,6 @@
     "xquartz"
   ],
   "dirs": [
+    "/opt/homebrew-cask/Caskroom/"
   ]
 }
