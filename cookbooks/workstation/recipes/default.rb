@@ -63,6 +63,7 @@ when "mac_os_x"
   wk['cask_packages'].each do |cask_pkg|
     homebrew_cask "#{cask_pkg}" do
       action :cask
+      options ["--appdir=\"/Applications\""]
     end
   end
 
