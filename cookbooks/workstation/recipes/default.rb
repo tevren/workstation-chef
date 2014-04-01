@@ -42,7 +42,7 @@ when "mac_os_x"
   include_recipe "homebrew::default"
 
   wk['dirs'].each do |dir|
-    directory "#{ENV['HOME']}/#{dir}" do
+    directory "#{dir}" do
       owner ENV['USER']
       group "staff"
       mode "0755"
@@ -63,10 +63,11 @@ when "mac_os_x"
     end
   end
 
+  end
   wk['cask_packages'].each do |cask_pkg|
     homebrew_cask "#{cask_pkg}" do
-      action :cask
       options ["--appdir=\"/Applications\""]
+      action :cask      
     end
   end
 
