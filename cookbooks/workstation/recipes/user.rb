@@ -12,6 +12,13 @@ git "#{ENV['HOME']}/.oh-my-zsh" do
   user ENV['USER']
 end
 
+git "#{ENV['HOME']}/.zsh-autosuggestions" do
+  repository "https://github.com/tarruda/zsh-autosuggestions"
+  reference "master"
+  action :sync
+  user ENV['USER']
+end
+
 bash "move_dotfiles_from_repo_into_home" do
   user ENV['USER']
   cwd "#{node['workstation']['workspace']}/dotfiles"
