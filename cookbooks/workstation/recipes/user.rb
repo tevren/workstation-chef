@@ -5,15 +5,15 @@ rescue Net::HTTPServerException => e
   Chef::Application.fatal!("#{cookbook_name} could not load data bag; #{e}")
 end
 
-git "#{ENV['HOME']}/.oh-my-zsh" do
-  repository "https://github.com/robbyrussell/oh-my-zsh.git"
+git "#{ENV['HOME']}/.zsh-autosuggestions" do
+  repository "https://github.com/tarruda/zsh-autosuggestions"
   reference "master"
   action :sync
   user ENV['USER']
 end
 
-git "#{ENV['HOME']}/.zsh-autosuggestions" do
-  repository "https://github.com/tarruda/zsh-autosuggestions"
+git "#{ENV['HOME']}/.zgen" do
+  repository "https://github.com/tarjoilija/zgen.git"
   reference "master"
   action :sync
   user ENV['USER']
